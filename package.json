@@ -21,19 +21,27 @@
   "bugs": {
     "url": "https://github.com/hildjj/abc-peg/issues"
   },
-  "files": [ "lib/*" ],
+  "files": [
+    "lib/*"
+  ],
   "scripts": {
+    "clean": "rimraf docs lib coverage",
+    "prebuild": "copyfiles -f src/*.d.ts lib && npm run parser",
     "build": "tsup",
+    "parser": "peggy --format es src/abc.peggy -o lib/abc.js",
     "docs": "typedoc",
     "lint": "eslint .",
-    "pretest": "tsup",
+    "pretest": "npm run build",
     "test": "c8 node --test",
-    "ci": "npm run lint && npm run test"
+    "ci": "npm run test && npm run lint"
   },
   "devDependencies": {
     "@cto.af/eslint-config": "4.1.3",
+    "@peggyjs/coverage": "1.2.0",
     "c8": "10.1.2",
+    "copyfiles": "2.4.1",
     "eslint": "9.6.0",
+    "peggy": "4.0.3",
     "rimraf": "6.0.1",
     "tsup": "8.1.0",
     "typedoc": "0.26.4",
