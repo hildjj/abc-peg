@@ -33,7 +33,7 @@
     "lint": "eslint .",
     "pretest": "npm run build",
     "test": "c8 node --test",
-    "ci": "npm run lint && npm run test"
+    "ci": "npm run test && npm run lint"
   },
   "devDependencies": {
     "@cto.af/eslint-config": "4.1.3",

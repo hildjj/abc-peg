@@ -7,6 +7,7 @@ export default [
   {
     ignores: [
       'lib/**',
+      '**/*.d.ts',
     ],
   },
   ...base,
