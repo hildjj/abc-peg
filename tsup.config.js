@@ -6,7 +6,7 @@ const src = new URL('./src', import.meta.url);
 
 const files = await fs.readdir(src);
 const entry = files
-  .filter(f => f.endsWith('.ts'))
+  .filter(f => f.endsWith('.ts') && !f.endsWith('.d.ts'))
   .map(f => path.join('src', f));
 
 export default defineConfig({
